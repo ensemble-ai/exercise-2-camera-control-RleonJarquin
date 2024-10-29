@@ -1,8 +1,8 @@
 class_name positionLock
 extends CameraControllerBase
 
-@export var box_width:float = 5.0
-@export var box_height:float = 5.0
+@export var box_width:float = 20.0
+@export var box_height:float = 20.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	
 	if draw_camera_logic:
 		draw_logic()
+		
+	super(delta)
 	
 func draw_logic() -> void:
 	var mesh_instance = MeshInstance3D.new()
@@ -29,6 +31,10 @@ func draw_logic() -> void:
 	var right:float = box_width / 2
 	var top:float = -box_height / 2
 	var bottom:float = box_height / 2
+	
+	#Add midpoints
+	var middle_lr:float = (left + right)/2
+	var middle_tb:float = (top + bottom)/2
 	
 	immediate_mesh.surface_begin(Mesh.PRIMITIVE_LINES, material)
 	immediate_mesh.surface_add_vertex(Vector3(right, 0, top))
@@ -44,7 +50,7 @@ func draw_logic() -> void:
 	immediate_mesh.surface_add_vertex(Vector3(right, 0, top))
 	
 	#Add the diagonal vertices
-	#immediate_mesh.surface_add_vertex(Vector3(left, 0, top))
+	immediate_mesh.surface_add_vertex(Vector3(left, 0, top))
 
 	
 	immediate_mesh.surface_end()
