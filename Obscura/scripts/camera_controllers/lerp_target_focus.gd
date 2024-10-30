@@ -1,6 +1,7 @@
-class_name positionLock
+class_name LerpTargetFocus
 extends CameraControllerBase
 
+@export var lead_speed:float
 @export var catchup_delay_duration:float
 @export var catchup_speed:float
 @export var leash_distance:float
@@ -13,14 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = target.position
-	
-	if draw_camera_logic:
-		draw_logic()
+
 		
 	super(delta)
 	
 func draw_logic() -> void:
 	pass
-	
-	

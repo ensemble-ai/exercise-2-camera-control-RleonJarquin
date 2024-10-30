@@ -17,7 +17,6 @@ func _ready() -> void:
 	current = false
 	position += Vector3(0.0, dist_above_target, 0.0) 
 
-
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire1"):
 		draw_camera_logic = !draw_camera_logic

@@ -1,9 +1,12 @@
-class_name positionLock
+class_name FourWaySpeedupCamera
 extends CameraControllerBase
 
-@export var catchup_delay_duration:float
-@export var catchup_speed:float
-@export var leash_distance:float
+@export var pushbox_top_left:Vector2
+@export var pushbox_bottom_right:Vector2
+@export var speedup_zone_top_left:Vector2
+@export var speedup_zone_bottom_right:Vector2
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,14 +16,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = target.position
-	
-	if draw_camera_logic:
-		draw_logic()
+
 		
 	super(delta)
 	
 func draw_logic() -> void:
 	pass
-	
 	
