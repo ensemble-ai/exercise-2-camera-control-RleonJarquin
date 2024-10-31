@@ -13,6 +13,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !current:
+		return
+		
 	position = target.position
 	
 	if draw_camera_logic:

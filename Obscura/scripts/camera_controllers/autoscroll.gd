@@ -11,9 +11,12 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !current:
+		return
+
 	#If the character touches the left border or right border, push the character
 	position += autoscroll_speed * delta
-	#target.global_position.move_toward(autoscroll_speed * delta, delta)
+	target.global_position.move_toward(autoscroll_speed * delta, delta)
 	
 	# Finding Box Width and Box Height Borders
 	var box_width = topLeft.x - bottomLeft.x 
