@@ -16,6 +16,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !current:
 		return
+	
+	if draw_camera_logic: 
+		draw_logic()
 	super(delta)
 	
 func draw_logic() -> void:
