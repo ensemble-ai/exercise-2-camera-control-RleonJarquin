@@ -46,7 +46,7 @@ terrain_manager = NodePath("../TerrainManager")
 
 [node name="CameraSelector" type="Node" parent="." node_paths=PackedStringArray("cameras")]
 script = ExtResource("2_qffo5")
-cameras = [NodePath("../PushBoxCamera"), NodePath("../PushBoxCamera2"), NodePath("../PushBoxCamera3"), NodePath("../PositionLockCamera"), NodePath("../AutoscrollCamera"), null, null, NodePath("../FourWaySpeedUpCamera")]
+cameras = [NodePath("../PushBoxCamera"), NodePath("../PushBoxCamera2"), NodePath("../PushBoxCamera3"), NodePath("../PositionLockCamera"), NodePath("../AutoscrollCamera"), NodePath("../PositionLockLerpCamera"), null, NodePath("../FourWaySpeedUpCamera")]
 
 [node name="PushBoxCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 30, 0)
@@ -108,11 +108,11 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("3_4fllx")
 
-[node name="PositionLockLerpCamera2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
+[node name="PositionLockLerpCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
 script = ExtResource("7_phkpk")
-follow_speed = 0.0
-catchup_speed = 0.0
-leash_distance = 0.0
+follow_speed = 30.0
+catchup_speed = 70.0
+leash_distance = 50.0
 target = NodePath("../Vessel")
 
 [node name="LerpTargetFocusCamera" parent="." instance=ExtResource("3_ttnp6")]
@@ -120,7 +120,7 @@ script = ExtResource("8_q81ve")
 lead_speed = 0.0
 catchup_delay_duration = 0.0
 catchup_speed = 0.0
-leash_distance = 0.0
+leash_distance = 50.0
 
 [node name="FourWaySpeedUpCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
 script = ExtResource("9_e83i4")

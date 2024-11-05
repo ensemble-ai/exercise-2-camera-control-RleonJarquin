@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 	var new_direction = Vector3(autoscroll_speed + target.velocity).normalized()
 	var new_speed = Vector3(autoscroll_speed + target.velocity).length()
 	var new_velocity = new_direction * new_speed
-	#target.velocity = new_velocity
 	
 	target.global_position.x = target.global_position.x + new_velocity.x * delta
 	target.global_position.z = target.global_position.z + new_velocity.z * delta
