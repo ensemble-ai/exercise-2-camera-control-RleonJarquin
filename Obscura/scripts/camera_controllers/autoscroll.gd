@@ -21,9 +21,19 @@ func _process(delta: float) -> void:
 	if draw_camera_logic:
 		draw_logic()
 	
+	#Apply a new velocity to the player
+	var smoothing = 0.1
+	var new_direction = autoscroll_speed.normalized() + target.velocity.normalized()
+	var new_speed = autoscroll_speed.length() + target.velocity.length()
+	var new_velocity = new_direction * new_speed
+	target.velocity = new_velocity
+	target.global_position.x = target.global_position.x + new_velocity.x * delta
+	target.global_position.z = target.global_position.z + new_velocity.z * delta
+
+	
 	#If the character touches the left border or right border, push the character
 	position += autoscroll_speed * delta
-	target.global_position.move_toward(autoscroll_speed * delta, delta)
+	#target.global_position.move_toward(autoscroll_speed * delta, delta)
 	
 	var tpos = target.global_position
 	var cpos = global_position

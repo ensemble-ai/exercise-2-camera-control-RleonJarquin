@@ -20,6 +20,9 @@ func _process(delta: float) -> void:
 	var tpos = target.global_position
 	var cpos = global_position
 	
+	var direction:Vector2 = Vector2(target.velocity.normalized().x, target.velocity.normalized().y)
+	var target_speed = target.velocity.length()
+	
 	#If the camera is at max leash distance. Have the camera go at the same speed as the player
 	if Vector2(cpos.x, cpos.z).distance_to(Vector2(tpos.x,tpos.z)) > leash_distance:
 		var new_cpos = global_transform.origin + target.velocity
