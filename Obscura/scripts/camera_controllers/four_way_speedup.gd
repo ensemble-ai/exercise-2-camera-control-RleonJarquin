@@ -7,14 +7,22 @@ extends CameraControllerBase
 @export var speedup_zone_top_left:Vector2
 @export var speedup_zone_bottom_right:Vector2
 
-var pushbox_height = abs(pushbox_top_left.y - pushbox_bottom_right.y)
-var pushbox_width = abs(pushbox_bottom_right.x - pushbox_top_left.x)
-var speedup_box_height = abs(speedup_zone_top_left.y - speedup_zone_bottom_right.y)
-var speedup_box_width = abs(speedup_zone_bottom_right.x - speedup_zone_top_left.x)
+var pushbox_height:float 
+var pushbox_width:float
+var speedup_box_height:float
+var speedup_box_width:float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	pushbox_height = pushbox_top_left.y - pushbox_bottom_right.y
+	pushbox_width = pushbox_bottom_right.x - pushbox_top_left.x
+	speedup_box_height = speedup_zone_top_left.y - speedup_zone_bottom_right.y
+	speedup_box_width = speedup_zone_bottom_right.x - speedup_zone_top_left.x
+	print(pushbox_top_left)
+	print(pushbox_bottom_right)
+	print(pushbox_top_left.y - pushbox_bottom_right.y)
+	print(pushbox_bottom_right.x - pushbox_top_left.x)
 	position = target.position
 	
 func lerp_global(current_position: Vector3, target_position: Vector3, t: float) -> Vector3:
@@ -100,7 +108,7 @@ func draw_logic() -> void:
 	immediate_mesh.surface_add_vertex(Vector3(right2, 0, bottom2))
 	
 	immediate_mesh.surface_add_vertex(Vector3(right2, 0, bottom2))
-	immediate_mesh.surface_add_vertex(Vector3(left, 0, bottom))
+	immediate_mesh.surface_add_vertex(Vector3(left2, 0, bottom2))
 	
 	immediate_mesh.surface_add_vertex(Vector3(left2, 0, bottom2))
 	immediate_mesh.surface_add_vertex(Vector3(left2, 0, top2))
