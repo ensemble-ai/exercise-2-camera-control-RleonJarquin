@@ -6,11 +6,13 @@ extends CameraControllerBase
 @export var autoscroll_speed:Vector3
 
 # Finding Box Width and Box Height Borders
-var box_width = topLeft.x - bottomRight.x 
-var box_height = topLeft.y - bottomRight.y 
+var box_width:float
+var box_height:float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	box_width = topLeft.x - bottomRight.x 
+	box_height = topLeft.y - bottomRight.y 
 	super()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,10 +25,11 @@ func _process(delta: float) -> void:
 	
 	#Apply a new velocity to the player
 	var smoothing = 0.1
-	var new_direction = autoscroll_speed.normalized() + target.velocity.normalized()
-	var new_speed = autoscroll_speed.length() + target.velocity.length()
+	var new_direction = Vector3(autoscroll_speed + target.velocity).normalized()
+	var new_speed = Vector3(autoscroll_speed + target.velocity).length()
 	var new_velocity = new_direction * new_speed
-	target.velocity = new_velocity
+	#target.velocity = new_velocity
+	
 	target.global_position.x = target.global_position.x + new_velocity.x * delta
 	target.global_position.z = target.global_position.z + new_velocity.z * delta
 
