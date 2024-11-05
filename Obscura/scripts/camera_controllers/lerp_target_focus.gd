@@ -20,6 +20,27 @@ func _process(delta: float) -> void:
 	if draw_camera_logic: 
 		draw_logic()
 		
+	var tpos = target.global_position
+	var cpos = global_position
+	
+	var smoothing = 0.95
+	var follow_direction = target.velocity.normalized()
+	var target_speed = target.velocity.length()
+	
+	#If the player is at max leash distance relative to the camrea. 
+	#Have the player go at the same speed as the camera
+	if Vector2(cpos.x, cpos.z).distance_to(Vector2(tpos.x,tpos.z)) > leash_distance:
+		target.global_position = target.global_position + follow_direction * lead_speed * delta 
+
+	#If the player is moving follow the camera at catch up speed. Otherwise if not moving follow 
+	# use catch up delay to slow down the camera to player position.
+	if(target.velocity.length() != 0):
+		global_position = global_position + follow_direction * (lead_speed + target_speed) * delta * smoothing
+	else:
+		var new_x = lerp(cpos.x, tpos.x, 1/catchup_delay_duration)
+		var new_z =  lerp(cpos.z, tpos.z, 1/catchup_delay_duration)
+		global_position = Vector3(new_x, global_position.y, new_z)
+		
 	super(delta)
 	
 func draw_logic() -> void:

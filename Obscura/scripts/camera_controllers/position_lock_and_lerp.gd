@@ -28,16 +28,12 @@ func _process(delta: float) -> void:
 	if Vector2(cpos.x, cpos.z).distance_to(Vector2(tpos.x,tpos.z)) > leash_distance:
 		global_position = global_position + follow_direction * target_speed * delta 
 
-	#If the player is moving follow the camera at follow speed. Otherwise if not moving follow at catchup speed.
+	#If the player is moving follow the player at follow speed. Otherwise if not moving follow the player 
+	# at catchup speed.
 	if(target.velocity.length() != 0):
 		global_position = global_position + follow_direction * follow_speed * delta * smoothing
 	else:
 		global_position = global_position + follow_direction * catchup_speed * delta * smoothing 
-
-
-	
-	if draw_camera_logic:
-		draw_logic()
 		
 	super(delta)
 	
