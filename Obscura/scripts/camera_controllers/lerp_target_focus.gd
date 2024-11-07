@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		target.global_position = target.global_position + follow_direction * lead_speed * delta 
 
 	#If the player is moving follow the camera at catch up speed. Otherwise if not moving follow 
-	# use catch up delay to slow down the camera to player position.
+	# use catch up delay to slow down the camera to player position.4
 	if(target.velocity.length() != 0):
 		global_position = global_position + follow_direction * (lead_speed + target_speed) * delta * smoothing
 	else:
