@@ -76,8 +76,8 @@ func _process(delta: float) -> void:
 		var cpos_delta = abs(tpos - cpos)
 
 		if within_box_bounds(pushbox_width, pushbox_height):
-			cpos_delta.x -= speedup_box_width / 2
-			cpos_delta.z -= speedup_box_height / 2
+			#cpos_delta.x -= speedup_box_width / 2
+			#cpos_delta.z -= speedup_box_height / 2
 			cpos_delta = cpos_delta * push_ratio * delta 
 			update_box_pos(speedup_box_width, speedup_box_height, tpos_direction, cpos_delta)
 		else:

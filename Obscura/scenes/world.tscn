@@ -46,7 +46,7 @@ terrain_manager = NodePath("../TerrainManager")
 
 [node name="CameraSelector" type="Node" parent="." node_paths=PackedStringArray("cameras")]
 script = ExtResource("2_qffo5")
-cameras = [NodePath("../PushBoxCamera"), NodePath("../FourWaySpeedUpCamera"), NodePath("../PushBoxCamera3"), NodePath("../PositionLockCamera"), NodePath("../AutoscrollCamera"), NodePath("../PositionLockLerpCamera"), NodePath("../LerpTargetFocusCamera"), null]
+cameras = [NodePath("../PushBoxCamera"), NodePath("../PushBoxCamera2"), NodePath("../PushBoxCamera3"), NodePath("../PositionLockCamera"), NodePath("../AutoscrollCamera"), NodePath("../PositionLockLerpCamera"), NodePath("../LerpTargetFocusCamera"), NodePath("../FourWaySpeedUpCamera")]
 
 [node name="PushBoxCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 30, 0)
@@ -96,7 +96,7 @@ script = ExtResource("3_4fllx")
 
 [node name="AutoscrollCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
 script = ExtResource("6_utjr0")
-topLeft = Vector2(50, 50)
+topLeft = Vector2(-30, 30)
 bottomRight = Vector2(0, 0)
 autoscroll_speed = Vector3(10, 0, 0)
 target = NodePath("../Vessel")
@@ -137,7 +137,7 @@ script = ExtResource("3_4fllx")
 
 [node name="FourWaySpeedUpCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ttnp6")]
 script = ExtResource("9_e83i4")
-push_ratio = 0.7
+push_ratio = 0.9
 pushbox_top_left = Vector2(-50, 50)
 pushbox_bottom_right = Vector2(0, 0)
 speedup_zone_top_left = Vector2(-30, 30)
