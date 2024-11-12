@@ -11,8 +11,8 @@ var box_height:float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	box_width = topLeft.x - bottomRight.x 
-	box_height = topLeft.y - bottomRight.y 
+	box_width = abs(bottomRight.x - topLeft.x)
+	box_height = abs(topLeft.y - bottomRight.y)
 	super()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -145,6 +145,12 @@ speedup_zone_bottom_right = Vector2(0, 0)
 target = NodePath("../Vessel")
 dist_above_target = 30.0
 
+[node name="debug" type="Label" parent="FourWaySpeedUpCamera"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_4fllx")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.5, 0, -2.18557e-08, -3.78552e-08, 1, -0.5, -0.866025, -4.37114e-08, 0, 70, 0)
 shadow_enabled = true
