@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 	if draw_camera_logic: 
 		draw_logic()
 		
+	super(delta)
+	
 	var tpos = target.global_position
 	var cpos = global_position
 	
@@ -41,7 +43,6 @@ func _process(delta: float) -> void:
 		var new_z =  lerp(cpos.z, tpos.z, 1/catchup_delay_duration)
 		global_position = Vector3(new_x, global_position.y, new_z)
 		
-	super(delta)
 	
 func draw_logic() -> void:
 	var mesh_instance := MeshInstance3D.new()
